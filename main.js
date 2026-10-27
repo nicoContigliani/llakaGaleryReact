@@ -26,7 +26,7 @@ const textureLoader = new THREE.TextureLoader();
 const walls = createWalls(scene, textureLoader);
 const floor = setupFloor(scene);
 const ceiling = createCeiling(scene, textureLoader);
-const paintings = createPaintings(scene, textureLoader);
+const { paintings, markers } = createPaintings(scene, textureLoader);
 const lighting = setupLighting(scene, paintings);
 
 createBoundingBoxes(walls);
@@ -38,7 +38,7 @@ setupPlayButton(controls);
 
 setupEventListeners(controls);
 
-clickHandling(renderer, camera, paintings);
+clickHandling(renderer, camera, paintings, markers);
 
 setupRendering(scene, camera, renderer, paintings, controls, walls);
 

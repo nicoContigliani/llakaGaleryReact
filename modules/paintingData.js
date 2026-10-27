@@ -1,71 +1,91 @@
 export const paintingData = [
-  // Front Wall
+  // Sala Principal - Frente
   ...Array.from({ length: 4 }, (_, i) => ({
-    // Array.from creates an array from an array-like object. The first parameter is the array-like object. The second parameter is a map function that is called for each element in the array-like object. The map function takes two parameters: the element and the index. The map function returns the value that will be added to the new array. In this case, we are returning an object with the painting data. `_` is a placeholder for the element. We don't need it because we are not using the element. `i` is the index. We use it to set the painting number.
-    imgSrc: `artworks/${i + 1}.jpg`, // `i + 1` is the painting number. We add 1 to the index because the index starts at 0 but we want the painting numbers to start at 1.
-    width: 5, // width of the painting
-    height: 3, // height of the painting
-    position: { x: -15 + 10 * i, y: 2, z: -19.5 }, // position of the painting
-    rotationY: 0, // rotation of the painting
+    imgSrc: `artworks/${i + 1}.jpg`,
+    width: 4.5,
+    height: 3,
+    position: { x: -18 + 12 * i, y: 4, z: -29.7 },
+    rotationY: 0,
     info: {
-      // info about the painting
-      title: `Van Gogh ${i + 1}`,
-      artist: 'Vincent van Gogh',
-      description: `This is one of the masterpieces by Vincent van Gogh, showcasing his unique style and emotional honesty. Artwork ${
-        i + 1
-      } perfectly encapsulates his love for the beauty of everyday life.`,
-      year: `Year ${i + 1}`,
+      title: `Obra ${i + 1}`,
+      artist: 'Colección Contemporánea',
+      description: `Pieza seleccionada para la sala principal. Explora los detalles y contexto de esta obra maestra en la galería principal.`,
+      year: `202${i + 1}`,
       link: 'https://github.com/theringsofsaturn',
     },
   })),
-  // Back Wall
+  // Sala Principal - Trasera
   ...Array.from({ length: 4 }, (_, i) => ({
     imgSrc: `artworks/${i + 5}.jpg`,
-    width: 5,
+    width: 4.5,
     height: 3,
-    position: { x: -15 + 10 * i, y: 2, z: 19.5 },
+    position: { x: -18 + 12 * i, y: 4, z: 29.7 },
     rotationY: Math.PI,
     info: {
-      title: `Van Gogh ${i + 5}`,
-      artist: 'Vincent van Gogh',
-      description: `Artwork ${
-        i + 5
-      } by Vincent van Gogh is an exceptional piece showcasing his remarkable ability to capture emotion and atmosphere.`,
-      year: `Year ${i + 5}`,
+      title: `Obra ${i + 5}`,
+      artist: 'Colección Contemporánea',
+      description: `Expuesta en la galería trasera, esta obra destaca por su composición única y paleta cromática distintiva.`,
+      year: `202${i + 1}`,
       link: 'https://github.com/theringsofsaturn',
     },
   })),
-  // Left Wall
-  ...Array.from({ length: 4 }, (_, i) => ({
+  // Sala 2 - Lateral Izquierdo
+  ...Array.from({ length: 3 }, (_, i) => ({
     imgSrc: `artworks/${i + 9}.jpg`,
-    width: 5,
-    height: 3,
-    position: { x: -19.5, y: 2, z: -15 + 10 * i },
+    width: 4,
+    height: 2.8,
+    position: { x: -49.7, y: 4, z: -15 + 15 * i },
     rotationY: Math.PI / 2,
     info: {
-      title: `Van Gogh ${i + 9}`,
-      artist: 'Vincent van Gogh',
-      description: `With its striking use of color and brushwork, Artwork ${
-        i + 9
-      } is a testament to Van Gogh's artistic genius.`,
-      year: `Year ${i + 9}`,
+      title: `Galería 2 - ${i + 9}`,
+      artist: 'Artistas Emergentes',
+      description: `Parte de la exposición de artistas emergentes. Cada pieza representa una perspectiva única y experimental.`,
+      year: `202${(i % 3) + 2}`,
       link: 'https://github.com/theringsofsaturn',
     },
   })),
-  // Right Wall
+  // Sala 2 - Otro lado
+  ...Array.from({ length: 3 }, (_, i) => ({
+    imgSrc: `artworks/${i + 12}.jpg`,
+    width: 4,
+    height: 2.8,
+    position: { x: -0.3, y: 4, z: -15 + 15 * i },
+    rotationY: Math.PI / 2,
+    info: {
+      title: `Sala Intermedia - ${i + 12}`,
+      artist: 'Colección Mixta',
+      description: `Sala intermedia conectando las diferentes galerías. Obras seleccionadas para crear un diálogo entre estilos.`,
+      year: `202${(i % 2) + 3}`,
+      link: 'https://github.com/theringsofsaturn',
+    },
+  })),
+  // Sala 3 - Derecha
   ...Array.from({ length: 4 }, (_, i) => ({
-    imgSrc: `artworks/${i + 13}.jpg`,
-    width: 5,
+    imgSrc: `artworks/${i + 15}.jpg`,
+    width: 4.5,
     height: 3,
-    position: { x: 19.5, y: 2, z: -15 + 10 * i },
+    position: { x: 49.7, y: 4, z: -18 + 12 * i },
     rotationY: -Math.PI / 2,
     info: {
-      title: `Van Gogh ${i + 13}`,
-      artist: 'Vincent van Gogh',
-      description: `Artwork ${
-        i + 13
-      } is a captivating piece by Vincent van Gogh, reflecting his distinctive style and deep passion for art.`,
-      year: `Year ${i + 13}`,
+      title: `Galería 3 - ${i + 15}`,
+      artist: 'Colección Clásica Contemporánea',
+      description: `La tercera galería presenta una selección curada de obras contemporáneas con enfoque en la narrativa visual.`,
+      year: `202${i + 2}`,
+      link: 'https://github.com/theringsofsaturn',
+    },
+  })),
+  // Más obras en divisores
+  ...Array.from({ length: 2 }, (_, i) => ({
+    imgSrc: `artworks/${i + 19}.jpg`,
+    width: 3.5,
+    height: 2.5,
+    position: { x: -25, y: 4, z: -9.7 },
+    rotationY: 0,
+    info: {
+      title: `Pasillo - ${i + 19}`,
+      artist: 'Instalación Temporal',
+      description: `Obras exhibidas en espacios de transición, creando una experiencia fluida entre salas.`,
+      year: `2024`,
       link: 'https://github.com/theringsofsaturn',
     },
   })),

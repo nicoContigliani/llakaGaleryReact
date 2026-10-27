@@ -1,48 +1,39 @@
 import * as THREE from "three";
-import floortTexture from "../public/WoodFloor040_4K-JPG/WoodFloor040_4K_Color.jpg";
 
 export const setupFloor = (scene) => {
   const textureLoader = new THREE.TextureLoader();
 
-  // Load the textures
-  const colorTexture = textureLoader.load(
-    "WoodFloor040_4K-JPG/WoodFloor040_4K_Color.jpg"
-  );
-  const displacementTexture = textureLoader.load(
-    "WoodFloor040_4K-JPG/WoodFloor040_4K_Displacement.jpg"
-  );
-  const normalTexture = textureLoader.load(
-    "WoodFloor040_4K-JPG/WoodFloor040_4K_NormalGL.jpg"
-  );
-  const roughnessTexture = textureLoader.load(
-    "WoodFloor040_4K-JPG/WoodFloor040_4K_Roughness.jpg"
-  );
-  const aoTexture = textureLoader.load(
-    "WoodFloor040_4K-JPG/WoodFloor040_4K_AmbientOcclusion.jpg"
-  );
+  const colorTexture = textureLoader.load("img/white-texture.jpg");
+  const normalTexture = textureLoader.load("leather_white_4k.gltf/textures/leather_white_nor_gl_4k.jpg");
+  const roughnessTexture = textureLoader.load("leather_white_4k.gltf/textures/leather_white_rough_4k.jpg");
 
-  // Set texture parameters
   colorTexture.wrapS = colorTexture.wrapT = THREE.RepeatWrapping;
-  displacementTexture.wrapS = displacementTexture.wrapT = THREE.RepeatWrapping;
   normalTexture.wrapS = normalTexture.wrapT = THREE.RepeatWrapping;
   roughnessTexture.wrapS = roughnessTexture.wrapT = THREE.RepeatWrapping;
-  aoTexture.wrapS = aoTexture.wrapT = THREE.RepeatWrapping;
 
-  const planeGeometry = new THREE.PlaneGeometry(45, 45);
-  const planeMaterial = new THREE.MeshStandardMaterial({
+  colorTexture.repeat.set(8, 8);
+  normalTexture.repeat.set(8, 8);
+  roughnessTexture.repeat.set(8, 8);
+
+  const planeGeometry = new THREE.PlaneGeometry(100, 100);
+  const planeMaterial = new THREE.MeshPhysicalMaterial({
     map: colorTexture,
-    displacementMap: displacementTexture,
     normalMap: normalTexture,
     roughnessMap: roughnessTexture,
-    aoMap: aoTexture,
-    displacementScale: 0.1,
+    color: 0xf8f9fa,
+    roughness: 0.08,
+    metalness: 0.02,
+    reflectivity: 0.6,
+    clearcoat: 0.8,
+    clearcoatRoughness: 0.08,
     side: THREE.DoubleSide,
   });
 
   const floorPlane = new THREE.Mesh(planeGeometry, planeMaterial);
-
+  floorPlane.receiveShadow = true;
   floorPlane.rotation.x = Math.PI / 2;
   floorPlane.position.y = -Math.PI;
 
   scene.add(floorPlane);
+  return floorPlane;
 };

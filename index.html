@@ -1,92 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
-
-    <title>3D Art Gallery</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LlakamIArte - Galería 3D</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
     <div id="menu">
-      <div id="img_container">
-        <div id="starry_night_bg"></div>
+      <div id="menu-header">
+        <h3>Menú</h3>
+        <button id="menu-close">×</button>
       </div>
-      <div id="content_container">
-        <div id="content">
-          <div class="title">
-            <h1>3D Art Gallery</h1>
-          </div>
-          <div class="title-info">
-            <p>Welcome to an immersive 3D Art Gallery experience.</p>
-            <p>
-              Wander through the virtual gallery halls, and engage with a
-              variety of masterpieces, learning about their history and
-              significance.
-            </p>
-            <p>
-              Developed by Emilian Kasemi with a passion for bringing art to
-              life through technology.
-            </p>
-          </div>
-
-          <div id="play_button">
-            <p>EXPLORE ART</p>
-          </div>
-          <div id="about_button_container">
-            <button id="about_button">ABOUT</button>
+      <div id="menu-content">
+        <button class="menu-item" id="menu-explore">EXPLORAR</button>
+        <button class="menu-item" id="menu-about">ACERCA DE</button>
+        <div class="menu-dropdown">
+          <button class="menu-item menu-dropdown-toggle" id="menu-controls">CONTROLES ▾</button>
+          <div class="menu-submenu" id="menu-controls-sub">
+            <div class="submenu-item">W/A/S/D - Moverse</div>
+            <div class="submenu-item">Mouse - Mirar</div>
+            <div class="submenu-item">Espacio - Bloquear puntero</div>
+            <div class="submenu-item">M - Menú</div>
+            <div class="submenu-item">Esc - Cerrar menú</div>
           </div>
         </div>
+        <button class="menu-item" id="menu-close-menu">CERRAR MENÚ</button>
       </div>
     </div>
 
     <div id="about-overlay">
-      <button id="close-about">X</button>
-      <h1>About the 3D Art Gallery</h1>
+      <button id="close-about">×</button>
+      <h1>Acerca de LlakamIArte</h1>
       <p>
-        Welcome to our virtual 3D Art Gallery. Here, you can navigate through a
-        variety of wonderful artworks and learn about their history and
-        significance.
+        LlakamIArte es una galería de arte virtual 3D que reúne obras seleccionadas
+        en un espacio arquitectónico moderno con múltiples salas, pasillos de vidrio
+        y una experiencia inmersiva.
+      </p>
+      <p><strong>Creadores:</strong></p>
+      <p>Equipo LlakamIArte</p>
+      <p>
+        Nuestra misión es hacer el arte más accesible para todos, sin importar
+        ubicación o contexto. Navega con libertad, descubre cada obra y conoce
+        su historia.
       </p>
       <p>
-        This project is brought to you by Emilian Kasemi. We believe in the
-        power of art to inspire, provoke thought, and communicate across
-        cultures and epochs. Our mission is to make art accessible to everyone,
-        regardless of location or background.
-      </p>
-      <p>
-        Feel free to explore and engage with the artworks. The gallery is best
-        experienced in full-screen mode. For optimal navigation, use the arrow
-        keys or the W, A, S, and D keys. You can also use your mouse to change
-        the viewing direction. Additional information about the artworks will
-        appear on your screen as you approach them.
+        <strong>Controles:</strong><br />
+        W/A/S/D - Moverse | Mouse - Mirar | Espacio - Bloquear puntero<br />
+        M - Menú | G/P - Guía de audio | Esc - Menú
       </p>
     </div>
 
-    <div id="info-panel">
-      <div id="info-header">
-        <h3>Controls</h3>
-        <button id="toggle-info">Hide</button>
+    <button id="menu-toggle" title="Menú">☰</button>
+
+    <div id="sidebar">
+      <div id="sidebar-header">
+        <h3>Menú</h3>
+        <button id="sidebar-close">×</button>
       </div>
-      <div id="info-content">
-        <p><b>W/A/S/D:</b> Move around</p>
-        <p><b>Mouse:</b> Look around</p>
-        <p><b>Space:</b> Toggle pointer lock</p>
-        <p><b>M:</b> Show Menu</p>
-        <p><b>Enter:</b> Start exploration</p>
-        <p><b>Esc:</b> Stop exploration</p>
-        <p><b>G:</b> Start audio guide</p>
-        <p><b>P:</b> Stop audio guide</p>
+      <div id="sidebar-content">
+        <button class="sidebar-btn" id="sidebar-audio-start">Guía de Audio</button>
+        <button class="sidebar-btn" id="sidebar-audio-stop">Detener Audio</button>
+        <button class="sidebar-btn" id="sidebar-project-info">Información del Proyecto</button>
+        <button class="sidebar-btn" id="sidebar-about">Acerca de</button>
+        <button class="sidebar-btn" id="sidebar-main-menu">Menú Principal (M)</button>
       </div>
     </div>
 
     <div id="audio_controls">
-      <button id="start_audio">Start Audio Guide</button>
-      <button id="stop_audio">Stop Audio Guide</button>
+      <button id="start_audio">Guía de Audio</button>
+      <button id="stop_audio">Detener</button>
     </div>
 
     <div id="painting-info"></div>
+
+    <div id="bottom-info-bar">
+      <button id="gallery-info-btn">ℹ Información del Proyecto</button>
+    </div>
+
+    <div id="project-info-modal">
+      <button id="close-project-info">×</button>
+      <h2>LlakamIArte - Galería 3D</h2>
+      <div class="info-section">
+        <h3>Creadores</h3>
+        <p>Equipo LlakamIArte</p>
+      </div>
+      <div class="info-section">
+        <h3>Acerca del Proyecto</h3>
+        <p>
+          Galería virtual interactiva con arquitectura moderna. Cuenta con múltiples
+          salas interconectadas, paredes de vidrio, piso elegante y sistema interactivo
+          para mostrar información de cada obra al hacer clic en los marcadores.
+        </p>
+      </div>
+      <div class="info-section">
+        <h3>Estado</h3>
+        <p>En desarrollo</p>
+      </div>
+    </div>
 
     <script type="module" src="/main.js"></script>
   </body>
