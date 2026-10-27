@@ -86,4 +86,5 @@ You'll see the URL address and the info help. Like for example:
 
 ## Authors
 
-- [Emilian Kasemi](https://www.github.com/theringsofsaturn)
+- [Nicolás Contigliani](https://www.github.com/nicoláscontigliani)
+# llakaGaleryReact
